@@ -1,0 +1,20 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "GameModularization"
+include ':app'
+include ':core'
+include ':constants'
+include ':hero'
+include ':hero:hero-datasource'
+include ':hero:hero-domain'
+include ':hero:hero-interactors'
+include ':hero:hero-datsdource-test'
+include ':components'
+include ':hero:ui-heroList'
+include ':hero:ui-heroDetails'

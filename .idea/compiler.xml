@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.7">
+      <module name="GameModularization.app" target="11" />
+      <module name="GameModularization.buildSrc" target="11" />
+      <module name="GameModularization.component" target="11" />
+      <module name="GameModularization.components" target="11" />
+      <module name="GameModularization.core" target="1.8" />
+      <module name="GameModularization.hero.hero-datasource" target="1.8" />
+      <module name="GameModularization.hero.hero-datsdource-test" target="1.8" />
+      <module name="GameModularization.hero.hero-domain" target="1.8" />
+      <module name="GameModularization.hero.hero-interactors" target="1.8" />
+      <module name="GameModularization.hero.ui-heroDetails" target="11" />
+      <module name="GameModularization.hero.ui-heroList" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
