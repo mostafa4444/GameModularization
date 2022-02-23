@@ -1,6 +1,7 @@
 package com.game.ui_herolist.di
 
 import com.game.core.Logger
+import com.game.hero_interactors.FilterHeros
 import com.game.hero_interactors.GetHeros
 import com.game.hero_interactors.HeroInteractors
 import com.game.ui_herolist.di.qualifiers.HeroListLogger
@@ -24,4 +25,10 @@ object HeroListModule {
     @HeroListLogger
     fun provideLogger(): Logger =
         Logger("HeroList" , true)
+
+
+    @Provides
+    @Singleton
+    fun provideFilterHeros(heroInteractors: HeroInteractors): FilterHeros=
+        heroInteractors.filterHeros
 }

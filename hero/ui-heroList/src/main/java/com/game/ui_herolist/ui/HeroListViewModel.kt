@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.game.core.DataState
 import com.game.core.Logger
 import com.game.core.UIComponent
+import com.game.hero_interactors.FilterHeros
 import com.game.hero_interactors.GetHeros
 import com.game.ui_herolist.di.qualifiers.HeroListLogger
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class HeroListViewModel @Inject constructor(
     private val getHeros: GetHeros,
-    @HeroListLogger private val logger: Logger
+    @HeroListLogger private val logger: Logger,
+    private val filterHeros: FilterHeros
 ): ViewModel() {
 
     val state: MutableState<HeroListState> = mutableStateOf(HeroListState())
@@ -46,10 +48,13 @@ class HeroListViewModel @Inject constructor(
     }
 
     private fun filterHeros() {
-        val filteredList = state.value.heros.filter {
-            it.localizedName.lowercase().contains(state.value.heroName.lowercase())
-        }.toMutableList()
-        state.value = state.value.copy(filteredHero = filteredList)
+        val filterList = filterHeros.execute(
+            current = state.value.heros,
+            heroName = state.value.heroName,
+            heroFilter = state.value.heroFilter,
+            attributeFilter = state.value.primaryAttribute
+        )
+        state.value = state.value.copy(filteredHero = filterList)
     }
 
     private fun getHeros(){
